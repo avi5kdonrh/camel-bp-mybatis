@@ -19,7 +19,7 @@ public class JavaRouteBuilder extends RouteBuilder {
                     .process(exchange -> {
                         Person person = exchange.getIn().getBody(Person.class);
                         log.info(">> Article Title "+ person.getName());
-                    }) .setAutoStartup("false");
+                    });
         // Insert example
             from("timer:insert?period=10s")
                     .process(exchange -> {
@@ -30,7 +30,7 @@ public class JavaRouteBuilder extends RouteBuilder {
                         exchange.getIn().setHeader("person", person);
                     })
                     .to("mybatis:setPerson?statementType=Insert&inputHeader=person")
-                    .to("log:insertLog?showBody=true") .setAutoStartup("false");
+                    .to("log:insertLog?showBody=true");
         // Update Example
         from("timer:insert?repeatCount=1")
                 .process(exchange -> {
@@ -41,8 +41,7 @@ public class JavaRouteBuilder extends RouteBuilder {
                     exchange.getIn().setHeader("person", person);
                 })
                 .to("mybatis:updatePerson?statementType=Update&inputHeader=person")
-                .to("log:updateLog?showBody=true")
-                .setAutoStartup("false");
+                .to("log:updateLog?showBody=true");
 
         // Consumer example
 
