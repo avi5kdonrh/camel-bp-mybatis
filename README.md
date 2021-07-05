@@ -16,6 +16,6 @@
  ## After this, clone the project
  git clone https://github.com/avi5kdonrh/camel-bp-mybatis
  ## Now
- - cd camel-bp-mybatis
- -  mvn clean install camel:run -Ddriver=com.microsoft.sqlserver.jdbc.SQLServerDriver -Durl="jdbc:sqlserver://localhost:1433;DatabaseName=master" -Duser=sa -Dpassword=pwd
+`cd camel-bp-mybatis`
+ `mvn clean install camel:run -Ddriver=com.microsoft.sqlserver.jdbc.SQLServerDriver -Durl="jdbc:sqlserver://localhost:1433;DatabaseName=master" -Duser=sa -Dpassword=pwd`
 
